@@ -31,7 +31,19 @@ public class Faculty {
     public void setDepartments(ArrayList<Department> departments) {
         this.departments = departments;
     }
-    public String toString() {
+   /* public String toString() {
         return "{name: " + getName() + ", chief: " + getChief() + "\ndepartments:" + getDepartments() + "}";
+    }*/
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Faculty: ").append(name).append("\n");
+        stringBuilder.append("Chief: ").append(chief).append("\n");
+        stringBuilder.append("Departments:\n");
+        for (Department department : departments) {
+            stringBuilder.append("\t").append(department).append("\n");
+        }
+        return stringBuilder.toString();
     }
 }

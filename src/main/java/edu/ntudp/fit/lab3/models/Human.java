@@ -29,9 +29,14 @@ public class Human {
         this.middleName = middleName;
     }
 
-    public String toString() {
+    /*public String toString() {
         return "{firstName: " + getFirstName() + ", lastName:" + getLastName() +
                 ", middleName: " + getMiddleName()+"}" ;
+    }*/
+    @Override
+    public String toString() {
+        return "{firstName: " + (firstName != null ? firstName : "Unknown") +
+                ", lastName: " + (lastName != null ? lastName : "Unknown") +
+                ", middleName: " + (middleName != null ? middleName : "Unknown") + "}";
     }
-
 }

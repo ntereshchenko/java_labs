@@ -30,9 +30,20 @@ public class Group {
         this.students = students;
     }
 
-    public String toString() {
+  /* public String toString() {
         return "Group: {name: " + getName() + ", chief:" + getChief() +
                 ", \nstudents: " + getStudents() + "}";
-    }
+    }*/
+  @Override
+  public String toString() {
+      StringBuilder stringBuilder = new StringBuilder();
+      stringBuilder.append("Group: ").append(name).append("\n");
+      stringBuilder.append("Chief: ").append(chief).append("\n");
+      stringBuilder.append("Students:\n");
+      for (Student student : students) {
+          stringBuilder.append("\t").append(student).append("\n");
+      }
+      return stringBuilder.toString();
+  }
+  }
 
-}

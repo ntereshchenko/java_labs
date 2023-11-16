@@ -29,8 +29,18 @@ public class Department {
     public void setGroups(ArrayList<Group> groups) {
         this.groups = groups;
     }
-    public String toString() {
+    /*public String toString() {
         return "Department: {name: " + getName() + ", chief:" + getChief() + ", \ngroups:" + getGroups() + "}";
+    }*/
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Department: ").append(name).append("\n");
+        stringBuilder.append("Chief: ").append(chief).append("\n");
+        stringBuilder.append("Groups:\n");
+        for (Group group : groups) {
+            stringBuilder.append("\t").append(group).append("\n");
+        }
+        return stringBuilder.toString();
     }
-
 }
