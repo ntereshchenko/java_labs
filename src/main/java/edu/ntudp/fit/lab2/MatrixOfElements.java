@@ -11,9 +11,12 @@ public class MatrixOfElements {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Choose how to create a matrix:");
-        System.out.println("1. Type from the keyboard");
-        System.out.println("2. Generate randomly");
+        System.out.println("""
+                                  
+                Choose how to create a matrix:
+                1. Type from the keyboard:
+                2. Generate randomly:
+                 """);
 
         int choice = scanner.nextInt();
 
