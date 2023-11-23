@@ -1,13 +1,8 @@
-package edu.ntudp.fit.lab3.controller;
+package edu.ntudp.fit.lab4.controller;
 
 import edu.ntudp.fit.lab3.Sex;
-import edu.ntudp.fit.lab3.models.*;
+import edu.ntudp.fit.lab4.models.*;
 
-
-import java.util.ArrayList;
-import java.util.List;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class UniversityCreator {

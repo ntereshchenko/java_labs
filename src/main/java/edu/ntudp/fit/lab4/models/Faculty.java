@@ -1,7 +1,9 @@
-package edu.ntudp.fit.lab3.models;
+package edu.ntudp.fit.lab4.models;
 
 
 import java.util.List;
+import java.util.Objects;
+
 public class Faculty {
     private String facultyName;
     private Human facultyBoss;
@@ -34,5 +36,13 @@ public class Faculty {
     public String toString() {
         return "\nFaculty name: " + facultyName + "\n" + "Faculty boss:" + facultyBoss +
                 "\nDepartments:\n" + getDepartments();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Faculty faculty = (Faculty) o;
+        return Objects.equals(facultyName, faculty.facultyName) && Objects.equals(facultyBoss, faculty.facultyBoss) && Objects.equals(departments, faculty.departments);
     }
 }

@@ -1,7 +1,7 @@
-package edu.ntudp.fit.lab3.models;
+package edu.ntudp.fit.lab4.models;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Group {
     private String groupName;
@@ -35,4 +35,12 @@ public class Group {
     public String toString() {
         return "\nGroup name: " + groupName + "\n" + "Group boss:" + getGroupBoss() + "\nStudents:\n" + getStudents();
     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Group group = (Group) o;
+        return Objects.equals(groupName, group.groupName) && Objects.equals(groupBoss, group.groupBoss) && Objects.equals(students, group.students);
+    }
+
 }

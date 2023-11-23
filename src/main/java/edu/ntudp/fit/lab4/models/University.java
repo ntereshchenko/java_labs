@@ -1,8 +1,9 @@
-package edu.ntudp.fit.lab3.models;
+package edu.ntudp.fit.lab4.models;
 
-import edu.ntudp.fit.lab3.controller.StudentCreator;
+import edu.ntudp.fit.lab4.controller.StudentCreator;
 
 import java.util.List;
+import java.util.Objects;
 
 public class University extends StudentCreator {
     private String universityName;
@@ -36,5 +37,13 @@ public class University extends StudentCreator {
     public String toString() {
         return "University name: " + universityName + "\n" + "University boss:" + universityBoss +
                 "\nFaculties:\n" + getFaculties();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        University that = (University) o;
+        return Objects.equals(universityName, that.universityName) && Objects.equals(universityBoss, that.universityBoss) && Objects.equals(faculties, that.faculties);
     }
 }

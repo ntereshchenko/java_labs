@@ -1,8 +1,8 @@
-package edu.ntudp.fit.lab3.controller;
+package edu.ntudp.fit.lab4.controller;
 
-import edu.ntudp.fit.lab3.models.Department;
-import edu.ntudp.fit.lab3.models.Group;
-import edu.ntudp.fit.lab3.models.Human;
+import edu.ntudp.fit.lab4.models.Department;
+import edu.ntudp.fit.lab4.models.Group;
+import edu.ntudp.fit.lab4.models.Human;
 
 import java.util.List;
 

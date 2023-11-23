@@ -1,7 +1,7 @@
-package edu.ntudp.fit.lab3.controller;
+package edu.ntudp.fit.lab4.controller;
 
-import edu.ntudp.fit.lab3.models.Human;
-import edu.ntudp.fit.lab3.models.Student;
+import edu.ntudp.fit.lab4.models.Human;
+import edu.ntudp.fit.lab4.models.Student;
 
 public class StudentCreator {
     public Student createStudent(Human human) {

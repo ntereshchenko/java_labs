@@ -1,6 +1,8 @@
-package edu.ntudp.fit.lab3.models;
+package edu.ntudp.fit.lab4.models;
 
 import edu.ntudp.fit.lab3.Sex;
+
+import java.util.Objects;
 
 public class Human {
     private String lastName;
@@ -47,7 +49,14 @@ public class Human {
         return "\n Last name: " + lastName + "\n " + "First name: " + firstName + "\n " + "Father name: "
                 + fatherName + "\n " + "Sex: " + sex;
     }
-}
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Human human = (Human) o;
+        return Objects.equals(lastName, human.lastName) && Objects.equals(firstName, human.firstName) && Objects.equals(fatherName, human.fatherName) && Objects.equals(sex, human.sex);
+    }
+}
 
 

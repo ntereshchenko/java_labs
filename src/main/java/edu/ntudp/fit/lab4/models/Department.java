@@ -1,7 +1,8 @@
-package edu.ntudp.fit.lab3.models;
+package edu.ntudp.fit.lab4.models;
 
 
 import java.util.List;
+import java.util.Objects;
 
 public class Department {
     private String departmentName;
@@ -29,5 +30,11 @@ public class Department {
                 "\nGroups:\n" + getGroups();
     }
 
-
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Department that = (Department) o;
+        return Objects.equals(departmentName, that.departmentName) && Objects.equals(departmentBoss, that.departmentBoss) && Objects.equals(groups, that.groups);
+    }
 }
