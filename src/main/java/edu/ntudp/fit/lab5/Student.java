@@ -43,7 +43,7 @@ public class Student {
         return studentIdCard;
     }
 
-    // Setters
+
     public void setId(int id) {
         this.id = id;
     }
