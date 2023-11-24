@@ -147,7 +147,7 @@ public class MatrixOfElements {
     }
 
     private static double calculateGeometricAverage(int[][] matrix) {
-        int product = 1;
+        double product = 1.0;
         int count = 0;
 
         for (int[] row : matrix) {
@@ -159,4 +159,5 @@ public class MatrixOfElements {
 
         return Math.pow(product, 1.0 / count);
     }
+
 }
