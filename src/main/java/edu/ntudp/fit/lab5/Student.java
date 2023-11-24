@@ -19,8 +19,54 @@ public class Student {
         this.studentIdCard = studentIdCard;
     }
 
-    // Геттери, сеттери та інші методи
+    public int getId() {
+        return id;
+    }
 
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
+    public int getStudentIdCard() {
+        return studentIdCard;
+    }
+
+    // Setters
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
+
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public void setStudentIdCard(int studentIdCard) {
+        this.studentIdCard = studentIdCard;
+    }
     @Override
     public String toString() {
         return String.format(

@@ -1,44 +1,45 @@
 package edu.ntudp.fit.lab5;
 import java.sql.*;
+import java.util.Scanner;
+
 
 public class StudentDatabase {
-
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/university?user=root&password=";
 
-
     public static void main(String[] args) {
-        try {
-            StudentDatabase studentDatabase = new StudentDatabase();
+        try (Connection connection = DriverManager.getConnection(JDBC_URL)) {
+            // Menu display
+            System.out.println("1. View all students");
+            System.out.println("2. Search for students by birth month");
+            System.out.print("Select an option: ");
 
-            // Вивід усіх студентів
-            studentDatabase.getAllStudents();
+            Scanner scanner = new Scanner(System.in);
+            int option = scanner.nextInt();
 
-            // Вивід студентів, які народилися в червні
-            studentDatabase.getStudentsByBirthMonth(6);
+            switch (option) {
+                case 1:
+                    displayAllStudents(connection);
+                    break;
+                case 2:
+                    System.out.print("Enter the birth month (1-12): ");
+                    int month = scanner.nextInt();
+                    displayStudentsByBirthMonth(connection, month);
+                    break;
+                default:
+                    System.out.println("Invalid option.");
+            }
+
+            // Connection close
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public StudentDatabase() {
-        // Здійснюємо реєстрацію драйвера при створенні об'єкта класу
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(JDBC_URL);
-    }
-
-    public void getAllStudents() throws SQLException {
-        try (Connection connection = getConnection()) {
-
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM students");
-
+    private static void displayAllStudents(Connection connection) throws SQLException {
+        String sql = "SELECT * FROM students";
+        try (Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(sql)) {
             while (resultSet.next()) {
                 Student student = extractStudentFromResultSet(resultSet);
                 System.out.println(student.toString());
@@ -46,23 +47,24 @@ public class StudentDatabase {
         }
     }
 
-    public void getStudentsByBirthMonth(int targetMonth) throws SQLException {
-        try (Connection connection = getConnection()) {
-
-            String sql = "SELECT * FROM students WHERE MONTH(birth_date) = ?";
-            try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-                preparedStatement.setInt(1, targetMonth);
-
-                ResultSet resultSet = preparedStatement.executeQuery();
-                while (resultSet.next()) {
-                    Student student = extractStudentFromResultSet(resultSet);
-                    System.out.println(student.toString());
+    private static void displayStudentsByBirthMonth(Connection connection, int month) throws SQLException {
+        String sql = "SELECT * FROM students WHERE MONTH(birth_date) = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setInt(1, month);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (!resultSet.isBeforeFirst()) {
+                    System.out.println("No students born in the specified month.");
+                } else {
+                    while (resultSet.next()) {
+                        Student student = extractStudentFromResultSet(resultSet);
+                        System.out.println(student.toString());
+                    }
                 }
             }
         }
     }
 
-    private Student extractStudentFromResultSet(ResultSet resultSet) throws SQLException {
+    private static Student extractStudentFromResultSet(ResultSet resultSet) throws SQLException {
         return new Student(
                 resultSet.getInt("id"),
                 resultSet.getString("last_name"),
