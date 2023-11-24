@@ -12,3 +12,26 @@ VALUES
     ('Ivanov', 'Ivan', 'Ivanovich', '2000-01-15', 12345),
     ('Petrov', 'Petr', 'Petrovich', '2000-03-20', 67890),
     ('Sidorov', 'Sidr', 'Sidrovich', '1999-06-01', 11111);
+
+
+    INSERT INTO students (last_name, first_name, middle_name, birth_date, student_id_card)
+    VALUES
+        ('Tereshchenko', 'Nastya', 'Sergeevna', '1998-04-22', 54321),
+        ('Matveev', 'Max', 'Andriyovich', '2001-07-15', 98765),
+        ('Bondarenko', 'Michael', 'Olegovich', '1999-02-10', 11111),
+        ('Maykova', 'Olena', 'Olegovna', '2000-09-05', 22222),
+        ('Miller', 'Christopher', 'Thomas', '1997-11-30', 33333),
+        ('Wilson', 'Olivia', 'Grace', '2002-01-18', 44444),
+        ('Maygun', 'Borys', 'Mykolaiovich', '1998-08-12', 55555),
+        ('Taylor', 'Sophia', 'Rose', '2003-03-25', 66666),
+        ('Anderson', 'Matthew', 'William', '1997-05-08', 77777),
+        ('White', 'Ava', 'Lynn', '2002-10-02', 88888),
+        ('Hall', 'Ethan', 'Benjamin', '1999-12-20', 99999),
+        ('Harris', 'Emma', 'Nicole', '2001-06-12', 101010),
+        ('Clark', 'Alexander', 'David', '1998-09-28', 111111),
+        ('Thomas', 'Madison', 'Avery', '2000-04-17', 121212),
+        ('Walker', 'Liam', 'Carter', '1997-01-05', 131313),
+        ('Allen', 'Chloe', 'Victoria', '2002-08-21', 141414),
+        ('Maximenko', 'Andriy', 'Andriyovich', '1999-07-07', 151515),
+        ('Young', 'Grace', 'Natalie', '2003-02-14', 161616),
+        ('Martin', 'Samuel', 'Joseph', '1996-10-30', 171717),
