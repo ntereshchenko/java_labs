@@ -29,28 +29,28 @@ public class UniversityCreator {
         Human firstHuman = humanCreate.createHuman("Bondarenko", "Paulo", "Ivanovych", Sex.MALE);
         Human secondHuma = humanCreate.createHuman("Tereshchenko", "Nastya", "Sergeevna", Sex.FEMALE);
         Human thirdHuman = humanCreate.createHuman("Matveev", "Max", "Olegovich", Sex.MALE);
-        Human fourHuman = humanCreate.createHuman("Maykov", "Oleg", "Antonovich", Sex.MALE);
-        Human fiveHuman = humanCreate.createHuman("Romanenko", "Ira", "Andreevna", Sex.FEMALE);
-        Human sixHuman = humanCreate.createHuman("Gor", "Alex", "Olegovich", Sex.MALE);
+        Human fourthHuman = humanCreate.createHuman("Maykov", "Oleg", "Antonovich", Sex.MALE);
+        Human fifthHuman = humanCreate.createHuman("Romanenko", "Ira", "Andreevna", Sex.FEMALE);
+        Human sixthHuman = humanCreate.createHuman("Gor", "Alex", "Olegovich", Sex.MALE);
 
         Student firstStudent = studentCreate.createStudent(firstHuman);
         Student secondStudent = studentCreate.createStudent(secondHuma);
         Student  thirdStudent = studentCreate.createStudent(thirdHuman);
-        Student fourStudent = studentCreate.createStudent(fourHuman);
-        Student fiveStudent = studentCreate.createStudent(fiveHuman);
-        Student sixStudent = studentCreate.createStudent(sixHuman);
+        Student fourthStudent = studentCreate.createStudent(fourthHuman);
+        Student fifthStudent = studentCreate.createStudent(fifthHuman);
+        Student sixthStudent = studentCreate.createStudent(sixthHuman);
 
 
         Group firstroup = createGroup("122-21-sk", secondHuma, firstStudent, secondStudent,  thirdStudent);
-        Group secondGroup = createGroup("122-21-1", sixHuman, fourStudent, fiveStudent, sixStudent);
+        Group secondGroup = createGroup("122-21-1", sixthHuman, fourthStudent, fifthStudent, sixthStudent);
 
         Department firstDepartment = createDepartment("PZKS", firstHuman, firstroup, secondGroup);
 
 
-        Faculty firstFaculty = createFaculty("FIT", fiveHuman, firstDepartment);
+        Faculty firstFaculty = createFaculty("FIT", fifthHuman, firstDepartment);
 
 
-        University university = createUniversity("NTU DP", fourHuman, List.of(firstFaculty));
+        University university = createUniversity("NTU DP", fourthHuman, List.of(firstFaculty));
 
         return university;
     }
